@@ -22,12 +22,15 @@ function stopSliding(slider){
     var leftBelow = parseInt(window.getComputedStyle(sliderBelow).getPropertyValue("left"));
     left = parseInt(left);
     var difference = left - leftBelow;
+
     var absDifference = Math.abs(difference); 
     if (difference>width||difference<-width) {
         var score = "Score: ".concat(slider-1);
         if(!alert(score)){window.location.reload();}
     } 
-    if (difference < 0) {
+
+    
+    if (difference > 0) {
         left = left + absDifference;
     }else{
         left = left - difference;
