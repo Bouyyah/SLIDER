@@ -14,11 +14,13 @@
 }
 #btn{
     font-size: 2rem;
+    margin: 1rem 420px;
     padding: 0.5rem 2rem;
     border: 3px solid black;
     border-radius: 0.3rem;
-    margin: 1 rem auto;
+    
     background-color: lightgreen;
+    
 }
 #btn:active{
     background-color: red;
