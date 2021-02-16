@@ -1,8 +1,7 @@
 let slideWidth = document.getElementById("game").offsetWidth/2;
 console.log(slideWidth);
 let count = 1;
-let bottom = 20;
-
+let bottom = 35;
 let sliderCurrent = createSlider(count);
 
 
@@ -19,11 +18,6 @@ function createSlider(sliderId){
 function getSliderBelow(){
     return (count==1) ? sliderCurrent : document.getElementById("slider".concat(count-1));
 }
-
-
-
-
-
 
 function stopSliding(){
 
@@ -58,7 +52,7 @@ function stopSliding(){
     sliderCurrent.style.width = offset;
     sliderAbove.style.width = offset;  
     sliderAbove.style.bottom = bottom + "px";
-    bottom += 20; 
+    bottom += 35; 
     slideWidth = slideWidth + absDifference;
     document.documentElement.style.setProperty("--width",(slideWidth+"px"));
     sliderCurrent = sliderAbove;
