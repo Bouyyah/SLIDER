@@ -1,4 +1,5 @@
-let slideWidth = 400;
+let slideWidth = document.getElementById("game").offsetWidth/2;
+console.log(slideWidth);
 let count = 1;
 let bottom = 20;
 
