@@ -1,47 +1,64 @@
+let slideWidth = 400;
+let count = 1;
+let bottom = 20;
 
-for (var i = 25; i > 0; i--) {
+let sliderCurrent = createSlider(count);
+
+
+
+
+function createSlider(sliderId){
     let slider = document.createElement("div");
     slider.setAttribute("class","slider animate");
-    slider.setAttribute("id","slider"+i);
-    document.getElementById("game").append(slider);   
+    slider.setAttribute("id","slider"+sliderId);
+    document.getElementById("game").append(slider);
+    return slider;
 }
-var slideWidth = 400;
-function stopSliding(slider){
-    var sliderCurrent = document.getElementById("slider".concat(slider));
-    var sliderAbove = document.getElementById("slider".concat(slider+1));
-    if (slider==1) {
-        var sliderBelow = sliderCurrent;
-    }else{
-        var sliderBelow = document.getElementById("slider".concat(slider-1));
-    }
-    
+
+function getSliderBelow(){
+    return (count==1) ? sliderCurrent : document.getElementById("slider".concat(count-1));
+}
+
+
+
+
+
+
+function stopSliding(){
+
     var left = window.getComputedStyle(sliderCurrent).getPropertyValue("left");
     sliderCurrent.classList.remove("animate");
     sliderCurrent.style.left = left;
+
+    var sliderBelow = getSliderBelow();
     var width = parseInt(window.getComputedStyle(sliderCurrent).getPropertyValue("width"));
     var leftBelow = parseInt(window.getComputedStyle(sliderBelow).getPropertyValue("left"));
+    
     left = parseInt(left);
     var difference = left - leftBelow;
-
     var absDifference = Math.abs(difference); 
+    
     if (difference>width||difference<-width) {
-        var score = "Score: ".concat(slider-1);
+        var score = "Score: ".concat(count-1);
         if(!alert(score)){window.location.reload();}
     } 
 
-    
+
     if (difference > 0) {
         left = left + absDifference;
     }else{
         left = left - difference;
         sliderCurrent.style.left = left.toString().concat("px");
     }
-    var offset = (width - absDifference).toString().concat("px");
+
+    count++;
+    let sliderAbove = createSlider(count);
+    let offset = (width - absDifference).toString().concat("px");
     sliderCurrent.style.width = offset;
-    sliderAbove.style.width = offset;
-    sliderAbove.style.visibility = "visible";
+    sliderAbove.style.width = offset;  
+    sliderAbove.style.bottom = bottom + "px";
+    bottom += 20; 
     slideWidth = slideWidth + absDifference;
     document.documentElement.style.setProperty("--width",(slideWidth+"px"));
-    var onclick = "stopSliding(" + (slider+1) + ")";
-    document.getElementById("btn").setAttribute("onclick", onclick); 
+    sliderCurrent = sliderAbove;
 }

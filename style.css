@@ -11,6 +11,7 @@
     height: 500px;
     margin: auto;
     border: 1px solid black;
+    position: relative;
 }
 #btn{
     font-size: 2rem;
@@ -26,15 +27,14 @@
     background-color: red;
 }
 .slider{
-    visibility: hidden;
+ 
     height: 20px;
     width: 100px;
     background-color: red;
-    position: relative;    
+    position: absolute;
+    bottom: 0px;    
 }
-#slider1{
-    visibility: visible;
-}
+
 .animate{
     animation: slide 4s infinite linear;
 }
