@@ -16,18 +16,23 @@
     background: rgb(63,94,251);
     background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
 }
-#btn{
-    font-size: 2rem;
-    margin: 1rem 420px;
-    padding: 0.5rem 2rem;
-    border: 3px solid black;
-    border-radius: 0.3rem;
+#begin{
+   
     
-    background-color: lightgreen;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    color: white; 
+    font-family: 'Helvetica Neue', sans-serif; 
+    font-size: 50px; 
+    font-weight: bold; 
+    letter-spacing: -1px; 
+    line-height: 1; 
+    text-align: center;
     
-}
-#btn:active{
-    background-color: red;
+    z-index: 100;
 }
 .slider{
  
@@ -39,6 +44,7 @@
     background: linear-gradient(to bottom right, #EFE93B, #E2D93F);
     position: absolute;
     bottom: 0px;    
+    
 }
 
 .animate{
